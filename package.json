@@ -1,5 +1,5 @@
 {
-  "name": "async-assets-loader",
+  "name": "@glook/async-assets-loader",
   "version": "0.0.0",
   "description": "",
   "keywords": [],
@@ -49,7 +49,7 @@
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
-    "testEnvironment": "node",
+    "testEnvironment": "jsdom",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
       "ts",
@@ -70,10 +70,11 @@
     },
     "collectCoverageFrom": [
       "src/*.{js,ts}"
-    ]
+    ],
+    "automock": false
   },
   "prettier": {
-    "semi": false,
+    "semi": true,
     "singleQuote": true
   },
   "commitlint": {
@@ -82,42 +83,48 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.1.2",
-    "@commitlint/config-conventional": "^7.1.2",
-    "@types/jest": "^23.3.2",
-    "@types/node": "^10.11.0",
-    "colors": "^1.3.2",
-    "commitizen": "^3.0.0",
-    "coveralls": "^3.0.2",
-    "cross-env": "^5.2.0",
-    "cz-conventional-changelog": "^2.1.0",
-    "husky": "^1.0.1",
-    "jest": "^23.6.0",
-    "jest-config": "^23.6.0",
-    "lint-staged": "^8.0.0",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@types/jest": "^26.0.9",
+    "@types/node": "^14.0.27",
+    "colors": "^1.4.0",
+    "commitizen": "^4.1.2",
+    "coveralls": "^3.1.0",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "jest": "^26.2.2",
+    "jest-config": "^26.2.2",
+    "jest-fetch-mock": "^3.0.3",
+    "lint-staged": "^10.2.11",
     "lodash.camelcase": "^4.3.0",
-    "prettier": "^1.14.3",
+    "prettier": "^2.0.5",
     "prompt": "^1.0.0",
-    "replace-in-file": "^3.4.2",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.67.0",
-    "rollup-plugin-commonjs": "^9.1.8",
-    "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-typescript2": "^0.18.0",
-    "semantic-release": "^15.9.16",
-    "shelljs": "^0.8.3",
-    "travis-deploy-once": "^5.0.9",
-    "ts-jest": "^23.10.2",
-    "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "tslint-config-standard": "^8.0.1",
-    "typedoc": "^0.12.0",
-    "typescript": "^3.0.3"
+    "replace-in-file": "^6.1.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.23.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.2",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "semantic-release": "^17.1.1",
+    "shelljs": "^0.8.4",
+    "travis-deploy-once": "^5.0.11",
+    "ts-jest": "^26.1.4",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^9.0.0",
+    "typedoc": "^0.17.8",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
-    "unfetch": "^4.1.0"
+    "@types/loadjs": "^4.0.0",
+    "@types/url-join": "^4.0.0",
+    "loadjs": "^4.2.0",
+    "p-lazy": "^3.0.0",
+    "unfetch": "^4.1.0",
+    "url-join": "^4.0.1"
   }
 }
