@@ -1,6 +1,6 @@
 {
   "name": "@glook/async-assets-loader",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
   "main": "dist/async-assets-loader.umd.js",
@@ -12,7 +12,7 @@
   "author": "Andrey Polyakov <andrey@polyakov.im>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/glook/async-assets-loader"
   },
   "license": "MIT",
   "engines": {
