@@ -102,6 +102,12 @@ export default class AsyncAssetsLoader {
     if (scriptElementSrc) {
       const assetsPath =
         scriptElement.getAttribute('data-assets-path') ?? this.props.assetsPath ?? '/';
+
+      const isAssetPathUrl = assetsPath.match(/^http(s?):\/\//);
+      // When assetPath preset as url
+      if (isAssetPathUrl) {
+        return assetsPath;
+      }
       const loaderFolder = scriptElementSrc.substr(0, scriptElementSrc.lastIndexOf('/'));
       return urlJoin(loaderFolder, assetsPath);
     }
@@ -167,7 +173,7 @@ export default class AsyncAssetsLoader {
   protected loadJsChunk = async (chunkFile: string) => {
     const url = urlJoin([this.assetsDirUrl, chunkFile]);
     try {
-      return new LazyPromise((resolve) => loadJs(url, () => resolve(true)));
+      return new LazyPromise((resolve) => resolve(loadJs(url, { returnPromise: true })));
     } catch (e) {
       console.warn(e);
     }

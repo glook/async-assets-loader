@@ -57,4 +57,26 @@ describe('AsyncAssetsLoader test', () => {
         expect(documentContent).toContain(chunkName);
       });
   });
+
+  it('test that assetsPath can be url', async () => {
+    insertLoaderIntoDocument({
+      chunkAttribute: 'data-chunks',
+      chunkList: 'vendor,second-chunk',
+      scriptSelector: 'assets-loader',
+      src: 'https://example.com/foo/bar/async-asset-loader.js',
+      assetsPath: 'https://foo.com/dist/',
+      assetsFile: 'assets.json',
+    });
+
+    const instance = new AsyncAssetsLoader();
+    await instance.init();
+    const documentContent = [document.head.innerHTML, document.body.innerHTML].join('\n');
+    console.log(documentContent);
+    expect(documentContent).toContain('https://foo.com/dist/');
+    Object.values(assetFixture['second-chunk'])
+      .reduce((accumulator, currentValue) => [...accumulator, ...currentValue], [])
+      .forEach((chunkName) => {
+        expect(documentContent).toContain(chunkName);
+      });
+  });
 });
